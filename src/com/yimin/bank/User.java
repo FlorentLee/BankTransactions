@@ -1,6 +1,6 @@
 package com.yimin.bank;
 
-public class Bank_Account {
+public class User {
 
     private String accountNumber;
     private double balance;
@@ -8,12 +8,7 @@ public class Bank_Account {
     private String customerEmail;
     private String customerPhoneNumber;
 
-    public Bank_Account() {
-        this("123456789", 50.0, "Default Name", "Default Email", "Default Phone Number");
-        System.out.println("Default Information:");
-    }
-
-    public Bank_Account(String accountNumber, double balance, String customerName, String customerEmail, String customerPhoneNumber) {
+    public User(String accountNumber, double balance, String customerName, String customerEmail, String customerPhoneNumber) {
         this.accountNumber = accountNumber;
         this.balance = balance;
         this.customerName = customerName;
@@ -62,8 +57,12 @@ public class Bank_Account {
     }
 
     public void depositFunds(double depositAmount){
-        this.balance += depositAmount;
-        System.out.println("Your deposit of " + depositAmount + " succeeded! The current balance is " + this.balance);
+        if(depositAmount >= 5.0 && depositAmount <= 10000.0) {
+            this.balance += depositAmount;
+            System.out.println("Your deposit of " + depositAmount + " succeeded! The current balance is " + this.balance);
+        }else{
+            System.out.println("Your deposit of " + depositAmount + " failed! The current balance is still" + this.balance);
+        }
     }
 
     public void withdrawFunds(double withdrawAmount) {
